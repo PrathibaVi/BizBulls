@@ -1,0 +1,12 @@
+DELIMITER //
+
+create procedure verify_login(
+IN p_USER_ID VARCHAR(60),
+IN p_PASSWORD VARCHAR(100) ,
+OUT p_ROLE_ID INT(2) )
+BEGIN
+SELECT ROLE_ID into p_ROLE_ID  from USER_DETAILS where USER_ID=p_USER_ID and PASSWORD=p_PASSWORD ;
+END//
+
+
+DELIMITER ;
