@@ -104,3 +104,161 @@ Stage_completed DATE ,
 Stage_outcome VARCHAR(50), 
 Remarks VARCHAR(2000) 
 );
+
+create table FO_PERSONAL_DETAILS_REFERANCE
+(
+fo_Personal_item_id INT(3) Not null,
+fo_item_display_name VARCHAR(200) Not Null,
+display_sequence INT(3) Not Null,
+button_display VARCHAR(20) Not Null,
+pre_post_button VARCHAR(4) Not Null,
+same_or_new_line VARCHAR(4) Not Null,
+is_drop_down VARCHAR(1) Not Null,
+drop_down_list VARCHAR(500) Not Null,
+pre_pop_text VARCHAR(500) ,
+PRIMARY KEY(fo_Personal_item_id)
+);
+
+create table FO_PERSONAL_DETAILS
+(
+USER_ID VARCHAR(60) Not Null,
+fo_Personal_item_id INT(3) Not Null,
+Item_values  VARCHAR(500) ,
+PRIMARY KEY(USER_ID, fo_Personal_item_id)
+);
+
+create table FO_HEALTH_DETAILS_REFERANCE
+(
+fo_health_item_id INT(3) Not null,
+fo_item_display_name VARCHAR(200) Not Null,
+display_sequence INT(3) Not Null,
+button_display VARCHAR(20) Not Null,
+pre_post_button VARCHAR(4) Not Null,
+same_or_new_line VARCHAR(4) Not Null,
+is_drop_down VARCHAR(1) Not Null,
+drop_down_list VARCHAR(500) Not Null,
+pre_pop_text VARCHAR(500) ,
+PRIMARY KEY(fo_health_item_id)
+);
+
+create table FO_HEALTH_DETAILS
+(
+USER_ID VARCHAR(60) Not Null,
+fo_health_item_id INT(3) Not Null,
+Item_values  VARCHAR(500) ,
+PRIMARY KEY(USER_ID, fo_health_item_id)
+);
+
+create table FO_EOI_DETAILS_REFERANCE
+(
+fo_EIO_item_id INT(3) Not null,
+fo_item_display_name VARCHAR(200) Not Null,
+display_sequence INT(3) Not Null,
+button_display VARCHAR(20) Not Null,
+pre_post_button VARCHAR(4) Not Null,
+same_or_new_line VARCHAR(4) Not Null,
+is_drop_down VARCHAR(1) Not Null,
+drop_down_list VARCHAR(500) Not Null,
+pre_pop_text VARCHAR(500) ,
+PRIMARY KEY(fo_EIO_item_id)
+);
+
+create table FO_EOI_DETAILS
+(
+USER_ID VARCHAR(60) Not Null,
+fo_EIO_item_id INT(3) Not Null,
+Item_values  VARCHAR(500) ,
+PRIMARY KEY(USER_ID, fo_EIO_item_id)
+);
+
+create table fo_Academic_details
+(
+user_id VARCHAR(60) Not Null,
+qualification_seq INT(3) ,
+Qualification VARCHAR(200), 
+Institution_name VARCHAR(200), 
+Board_university VARCHAR(200) ,
+year_of_passing INT(4) ,
+Percentage INT(2) ,
+PRIMARY KEY(user_id,qualification_seq )
+);
+
+create table fo_social_security_details
+(
+user_id VARCHAR(60) Not Null,
+adhaar_no INT(12)  Not Null,
+pancard_no VARCHAR(10) ,
+DL_no VARCHAR(50) ,
+passport_no VARCHAR(10), 
+voter_id_no VARCHAR(50) ,
+ration_card_no VARCHAR(50), 
+PRIMARY KEY(user_id)
+);
+
+create table fo_user_bank_details
+(
+user_id VARCHAR(60) Not Null,
+Bank_Name VARCHAR(200) ,
+Account_name VARCHAR(200), 
+Branch_name VARCHAR(200) ,
+IFSC_CODE VARCHAR(10) ,
+ACC_TYPE VARCHAR(20) ,
+PRIMARY KEY(user_id)
+);
+
+create table fo_user_family_details
+(
+user_id VARCHAR(60) Not Null,
+member_name VARCHAR(200) Not Null,
+relation VARCHAR(50) Not Null,
+age INT(3) Not Null,
+education VARCHAR(100), 
+occupation VARCHAR(100), 
+monthly_income INT(20) ,
+contact_number INT(12) ,
+address VARCHAR(500) ,
+PRIMARY KEY(user_id)
+);
+
+create table fo_user_children_details
+(
+user_id VARCHAR(60) Not Null,
+Child_name VARCHAR(200) Not Null,
+age INT(3) Not Null,
+sex VARCHAR(20) ,
+stays_with VARCHAR(100), 
+PRIMARY KEY(user_id, Child_name)
+);
+
+create table fo_user_personal_refs
+(
+user_id VARCHAR(60) Not Null,
+Personal_ref_Seq INT(3) Not Null,
+name VARCHAR(200) Not Null,
+relation VARCHAR(50) Not Null,
+sex VARCHAR(20) ,
+age INT(3) Not Null,
+occupation VARCHAR(100), 
+location VARCHAR(100) ,
+contact_number INT(12) Not Null,
+address VARCHAR(500) ,
+PRIMARY KEY(user_id,Personal_ref_Seq )
+);
+
+create table FO_CHECKLIST_DIFINATIONS
+(
+checklist_section_Seq INT(3),
+chkl_section_heading VARCHAR(200),
+chkl_sect_item_Seq INT(3),
+chkl_sect_item_text VARCHAR(500),
+PRIMARY KEY(checklist_section_Seq,chkl_sect_item_Seq )
+);
+
+create table FO_USER_CHECKLIST_VALUES
+(
+user_id VARCHAR(60) Not Null,
+checklist_section_Seq INT(3) Not Null,
+chkl_sect_item_Seq INT(4) Not Null,
+is_checked VARCHAR(1) Not Null,
+PRIMARY KEY(user_id, chkl_sect_item_Seq)
+);
